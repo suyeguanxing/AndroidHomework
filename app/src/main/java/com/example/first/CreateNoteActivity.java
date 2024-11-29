@@ -32,8 +32,6 @@ public class CreateNoteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_note);
-
-        // 初始化控件
         editTitle = findViewById(R.id.editTitle);
         editContent = findViewById(R.id.editContent);
         editDate = findViewById(R.id.editDate);
@@ -44,15 +42,6 @@ public class CreateNoteActivity extends AppCompatActivity {
         // 设置当前时间
         String currentDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         editDate.setText("创建于：" + currentDate);
-
-        // 设置 Spinner 默认选项
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.tag_options, android.R.layout.simple_spinner_item);
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinnerTag.setAdapter(adapter);
-        // 设置默认选择标签为 "未分类"
-        //spinnerTag.setSelection(0); // 这里选择了第一个标签项，即未分类
-
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.tag_options)) {
             @Override
@@ -96,7 +85,6 @@ public class CreateNoteActivity extends AppCompatActivity {
             return;
         }
 
-        // 保存笔记逻辑
         Notes note = new Notes(title, content, createdTime, lastModified, tag);
         dbEngine.insertNotes(note);
         activity.loadNotes();
