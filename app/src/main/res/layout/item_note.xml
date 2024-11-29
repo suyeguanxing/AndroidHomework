@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><!-- item_note.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">  <!-- 水平排列，垂直居中 -->
+
+        <!-- 笔记标题 -->
+        <TextView
+            android:id="@+id/noteTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Note Title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- 复选框，默认隐藏 -->
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:visibility="gone" /> <!-- 默认不可见 -->
+    </LinearLayout>
+
+    <!-- 笔记内容（部分内容） -->
+    <TextView
+        android:id="@+id/noteContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Part of Note Content"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp" /> <!-- 超出部分用省略号表示 -->
+
+    <!-- 最后一行：包含标签和修改时间 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="start|end"
+        android:orientation="horizontal">
+
+        <!-- 标签，位于左侧 -->
+        <TextView
+            android:id="@+id/noteTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:text="Tag: General"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="12sp" /> <!-- 允许标签占据一定的宽度 -->
+
+        <!-- 最后修改时间，位于右侧 -->
+        <TextView
+            android:id="@+id/noteModifiedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="0"
+            android:text="Last Modified: 2024-01-01"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="12sp" /> <!-- 只占据需要的宽度，靠右对齐 -->
+    </LinearLayout>
+
+
+</LinearLayout>

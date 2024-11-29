@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.First" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- 设置标题栏的背景颜色 -->
+        <item name="colorPrimary">@color/purple</item>
+
+        <!-- 设置标题栏文字颜色（可选） -->
+        <item name="android:textColorPrimary">@android:color/white</item>
+
+        <!-- 设置状态栏颜色（可选） -->
+        <item name="android:statusBarColor">@color/purple</item>
+    </style>
+
+    <style name="Theme.First" parent="Base.Theme.First" />
+</resources>

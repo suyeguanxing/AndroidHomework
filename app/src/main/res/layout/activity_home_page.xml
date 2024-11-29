@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomePageActivity">
+
+    <!-- AppBarLayout with MaterialToolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/purple"
+            app:titleTextColor="@color/white"
+            android:title="MineNotes" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 页面信息 -->
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="?attr/actionBarSize">  <!-- Adjusted margin for the button -->
+
+        <!-- 搜索栏 -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="搜索笔记标题"
+            android:iconifiedByDefault="false"
+            android:layout_margin="8dp"/>
+
+        <!-- 删除按钮 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end">
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:backgroundTint="@color/purple"
+                android:visibility="visible"
+                android:layout_marginEnd="20dp"/>
+        </LinearLayout>
+
+        <!-- RecyclerView 用于显示笔记列表 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notesRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbars="vertical" />
+
+
+    </LinearLayout>
+
+    <!-- 悬浮按钮：加号，点击时添加新笔记 -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddNote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@color/white"
+        android:contentDescription="Add Note"
+        android:backgroundTint="@color/purple"
+        android:onClick="addNoteClicked"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
